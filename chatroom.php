@@ -7,7 +7,7 @@ if(isset($_GET['logout'])){
     file_put_contents("log.html", $logout_message, FILE_APPEND | LOCK_EX);
 	
 	session_destroy();
-	header("Location: index.php"); //Redirect the user 
+	header("Location: chatroom.php"); //Redirect the user 
 }
 if(isset($_POST['enter'])){
     if($_POST['name'] != ""){
@@ -21,7 +21,7 @@ function loginForm(){
     echo 
     '<div id="loginform"> 
 <p>Please enter your name to continue!</p> 
-<form action="index.php" method="post"> 
+<form action="chatroom.php" method="post"> 
 <label for="name">Name &mdash;</label> 
 <input type="text" name="name" id="name" /> 
 <input type="submit" name="enter" id="enter" value="Enter" /> 
@@ -34,7 +34,7 @@ function loginForm(){
     <head>
         <meta charset="utf-8" />
         <title>Tuts+ Chat Application</title>
-        <meta name="description" content="Tuts+ Chat Application" />
+        <meta name="description" content="chatroom" />
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
@@ -91,7 +91,7 @@ function loginForm(){
                 $("#exit").click(function () {
                     var exit = confirm("Are you sure you want to end the session?");
                     if (exit == true) {
-                    window.location = "index.php?logout=true";
+                    window.location = "chatroom.php?logout=true";
                     }
                 });
             });
